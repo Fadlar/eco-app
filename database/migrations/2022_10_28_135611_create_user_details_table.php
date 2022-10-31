@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('user_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('points')->nullable();
             $table->string('avatar')->nullable();
             $table->string('phone_number', 30)->nullable();
-            $table->string('address')->nullable();
             $table->string('card_number', 50)->nullable();
             $table->timestamps();
         });

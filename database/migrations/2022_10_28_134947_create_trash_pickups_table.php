@@ -16,8 +16,13 @@ return new class extends Migration
         Schema::create('trash_pickups', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('trash_type_id')->constrained('trash_types')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('weight', 50)->comment('Only Gram');
+            $table->string('points_earned');
+            $table->dateTime('schedule');
+            $table->string('location');
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
+            $table->enum('status', ['waiting', 'rejected', 'pickup', 'done'])->default('waiting');
             $table->timestamps();
         });
     }
