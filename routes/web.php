@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TrashTypeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -16,5 +17,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::resource('trash-type', TrashTypeController::class)->middleware('auth');
 
 require __DIR__ . '/auth.php';
