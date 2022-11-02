@@ -1,20 +1,26 @@
+import Admin from "@/Layouts/Admin";
 import { useForm } from "@inertiajs/inertia-react";
 import React from "react";
+import toast from "react-hot-toast";
 
 export default function Create() {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: "",
     });
 
-    function submit(e) {
+    const submit = (e) => {
         e.preventDefault();
         post("/trash-type", {
             preserveScroll: true,
-            onSuccess: () => [reset()],
+            onSuccess: () => [
+                reset(),
+                toast.success("Data added successfully."),
+            ],
         });
-    }
+    };
+
     return (
-        <div>
+        <>
             <div>
                 <form onSubmit={submit} className="w-1/2">
                     <label htmlFor="name">Name</label>
@@ -30,13 +36,15 @@ export default function Create() {
                         {errors.name && errors.name}
                     </span>
                     <button
-                        className="inline py-2 px-5 rounded-lg bg-slate-800 text-white"
+                        className="inline rounded-lg bg-slate-800 py-2 px-5 text-white"
                         disabled={processing}
                     >
                         {processing ? "Loading" : "Submit"}
                     </button>
                 </form>
             </div>
-        </div>
+        </>
     );
 }
+
+Create.layout = (page) => <Admin children={page} />;

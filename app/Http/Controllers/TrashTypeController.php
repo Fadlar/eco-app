@@ -14,7 +14,7 @@ class TrashTypeController extends Controller
      */
     public function index()
     {
-        $types = TrashType::paginate(2);
+        $types = TrashType::paginate();
         return inertia('Admin/TrashType/Index', [
             'types' => $types
         ]);
@@ -42,7 +42,7 @@ class TrashTypeController extends Controller
             'name' => ['required']
         ]);
         TrashType::create($request->all());
-        return back();
+        return redirect("/trash-type");
     }
 
     /**

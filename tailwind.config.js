@@ -13,9 +13,14 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ["Nunito", ...defaultTheme.fontFamily.sans],
+                inter: ["Inter", ...defaultTheme.fontFamily.sans],
+            },
+            container: {
+                center: "true",
+                padding: "0.5rem",
             },
         },
     },
 
-    plugins: [require("@tailwindcss/forms")],
+    plugins: [require("@tailwindcss/forms"), require("tailwind-scrollbar")],
 };
