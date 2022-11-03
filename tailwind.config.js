@@ -15,6 +15,11 @@ module.exports = {
                 sans: ["Nunito", ...defaultTheme.fontFamily.sans],
                 inter: ["Inter", ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                "green-700": "#1b8a73",
+                "yellow-500": "#fdbe50",
+                "rose-500": "#f1624f",
+            },
             container: {
                 center: "true",
                 padding: "0.5rem",

@@ -1,22 +1,32 @@
 import React from "react";
-import ApplicationLogo from "@/Components/ApplicationLogo";
-import { Head, Link } from "@inertiajs/inertia-react";
+import { Head } from "@inertiajs/inertia-react";
+import Logo from "@/Components/Logo";
 
 export default function Guest({ children, title }) {
     return (
         <>
-            <Head title={title ?? "ECO APP"} />
-            <div className="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-                <div>
-                    <Link href="/">
-                        <ApplicationLogo className="w-20 h-20 fill-current text-gray-500" />
-                    </Link>
+            <main className="flex min-h-screen flex-col bg-slate-100 md:flex-row">
+                <div className="w-1/3" />
+                <div className="relative flex w-full items-center justify-center border-slate-300 md:border-l lg:w-2/5">
+                    <div className="flex w-full items-center justify-center md:min-h-screen md:p-10">
+                        <div className="w-full">
+                            <div className="border-primary-700 bg-slate-1000 shadow-primary-900/30 relative flex justify-center border-slate-300 bg-slate-50 md:flex-none md:justify-start">
+                                <a
+                                    className="mb-6 flex shrink-0 items-center pt-6 focus:outline-none md:-ml-[5.25rem] md:mb-0 md:pt-0"
+                                    href="/"
+                                >
+                                    <div className="rounded-full bg-green-700 p-5 md:-mb-[6.1rem]">
+                                        <Logo className={`h-10 w-10`} />
+                                    </div>
+                                </a>
+                            </div>
+                            {children}
+                        </div>
+                    </div>
                 </div>
+            </main>
 
-                <div className="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
-                    {children}
-                </div>
-            </div>
+            <Head title={title ?? "ECO APP"} />
         </>
     );
 }

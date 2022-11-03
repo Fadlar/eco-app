@@ -52,10 +52,10 @@ export default function Pagination({ data }) {
                                     href={link.url === null ? "#" : link.url}
                                     className={`${isActive(link.active)} ${
                                         link.label === "next"
-                                            ? "px-2 rounded-r-md"
+                                            ? "rounded-r-md px-2"
                                             : link.label === "prev"
-                                            ? "px-2 rounded-l-md"
-                                            : "px-4 rounded-none"
+                                            ? "rounded-l-md px-2"
+                                            : "rounded-none px-4"
                                     } ${
                                         link.url === null
                                             ? "cursor-not-allowed bg-gray-300/50"
