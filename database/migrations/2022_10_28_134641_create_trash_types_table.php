@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('trash_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('icon')->nullable();
+            $table->longText('icon')->nullable();
             $table->timestamps();
         });
     }

@@ -1,29 +1,24 @@
 import React from "react";
-import AuthenticatedLayout from "@/Layouts/App";
-import { Head } from "@inertiajs/inertia-react";
+import App from "@/Layouts/App";
+import { Head, Link } from "@inertiajs/inertia-react";
+import Heading from "@/Components/Heading";
 
-export default function Dashboard(props) {
+export default function Dashboard() {
     return (
-        <AuthenticatedLayout
-            auth={props.auth}
-            errors={props.errors}
-            header={
-                <h2 className="text-xl font-semibold leading-tight text-gray-800">
-                    Dashboard
-                </h2>
-            }
-        >
-            <Head title="Dashboard" />
-
-            <div className="py-12">
-                <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-                    <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                        <div className="border-b border-gray-200 bg-white p-6">
-                            You're logged in!
-                        </div>
+        <>
+            <Heading header={`Home`} desc={`Lorem ipsum dolor sit amet.`} />
+            <div className="mx-auto max-w-7xl">
+                <div className="overflow-hidden bg-white sm:rounded-2xl">
+                    <div className="bg-white p-6 leading-relaxed">
+                        You are log in.{" "}
+                        <Link href="#" className="text-blue-600 underline">
+                            Pickup Now
+                        </Link>
                     </div>
                 </div>
             </div>
-        </AuthenticatedLayout>
+        </>
     );
 }
+
+Dashboard.layout = (page) => <App title={`Dashboard`} children={page} />;

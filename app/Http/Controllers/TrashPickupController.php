@@ -14,7 +14,10 @@ class TrashPickupController extends Controller
      */
     public function index()
     {
-        //
+        $pickups = TrashPickup::with(['trashType', 'user'])->paginate();
+        return inertia('Admin/TrashPickups/Index', [
+            'pickups' => $pickups
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class TrashPickupController extends Controller
      */
     public function create()
     {
-        //
+        // 
     }
 
     /**
@@ -38,7 +41,7 @@ class TrashPickupController extends Controller
         $request->validate([
             'weight' => ['required', 'numeric'],
             'schedule' => ['required'],
-            'location' => ['required'],
+            'address' => ['required'],
             'lat' => ['required'],
             'lng' => ['required']
         ]);

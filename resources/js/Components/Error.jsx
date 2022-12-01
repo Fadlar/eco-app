@@ -1,4 +1,4 @@
-export default function InputError({ message, className = "" }) {
+export default function Error({ message, className = "" }) {
     return message ? (
         <p className={"text-sm text-red-600 " + className}>{message}</p>
     ) : null;

@@ -5,20 +5,20 @@ import toast from "react-hot-toast";
 import Header from "@/Components/Header";
 import FormTrashType from "@/Components/FormTrashType";
 
-export default function Create() {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        name: "",
-        icon: "",
+export default function Edit({ trashType }) {
+    const { data, setData, put, processing, errors, reset } = useForm({
+        name: trashType.name,
+        icon: trashType.icon,
     });
 
     const handleChange = (e) => setData(e.target.name, e.target.value);
     const submitHandler = (e) => {
         e.preventDefault();
-        post(route("trash-type.store"), {
+        put(route("trash-type.update", trashType.id), {
             preserveScroll: true,
             onSuccess: () => [
                 reset(),
-                toast.success("Data added successfully."),
+                toast.success("Data update successfully."),
             ],
         });
     };
@@ -30,7 +30,7 @@ export default function Create() {
                     className={"mb-6 text-gray-800"}
                     desc={"Here you can add trash type data."}
                 >
-                    Add Trash Type
+                    Edit Trash Type
                 </Header>
                 <div className="flex rounded-md bg-white px-7 py-5 shadow">
                     <div className="w-full lg:w-1/2">
@@ -41,6 +41,7 @@ export default function Create() {
                                 processing,
                                 submitHandler,
                                 handleChange,
+                                submit: "Update",
                             }}
                         />
                     </div>
@@ -49,7 +50,7 @@ export default function Create() {
                             {data.name}
                         </span>
                         <span
-                            className="mx-auto mt-3 block w-32 text-center"
+                            className="mx-auto mt-3 flex w-32 justify-center"
                             dangerouslySetInnerHTML={{ __html: data.icon }}
                         />
                     </div>
@@ -59,4 +60,4 @@ export default function Create() {
     );
 }
 
-Create.layout = (page) => <Admin children={page} title={"Add Trash Type"} />;
+Edit.layout = (page) => <Admin children={page} title={"Edit Trash Type"} />;

@@ -16,7 +16,7 @@ function MyPopover(props) {
                 </h2>
                 <a href="#" className="flex items-center space-x-1">
                     <span className="text-xs text-gray-400 hover:underline">
-                        View Profile
+                        Tampilkan Profil
                     </span>
                 </a>
             </div>
@@ -68,8 +68,8 @@ const navLinks = [
                 />
             </svg>
         ),
-        name: "Trash",
-        url: "/trash",
+        name: "Pickup Sampah",
+        url: "/trash-pickups",
     },
     {
         icon: (
@@ -86,7 +86,7 @@ const navLinks = [
                 <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
             </svg>
         ),
-        name: "Donation",
+        name: "Donasi",
         url: "/donation",
     },
     {
@@ -108,7 +108,7 @@ const navLinks = [
                 <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
             </svg>
         ),
-        name: "Trash Type",
+        name: "Jenis Sampah",
         url: "/trash-type",
     },
     {
@@ -131,94 +131,115 @@ const navLinks = [
                 <line x1={5} y1={18} x2={5} y2="18.01" />
             </svg>
         ),
-        name: "Donation Type",
+        name: "Jenis Donasi",
         url: "/donation-type",
     },
+    {
+        icon: (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 stroke-gray-400 group-hover:stroke-white"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx={12} cy={7} r={4} />
+                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+            </svg>
+        ),
+        name: "Data Penjual",
+        url: "/penjual",
+    },
 ];
+
+function Menus() {
+    let router = window.location.pathname;
+    router = router.split("/")[1];
+    return (
+        <div className="divide-y divide-gray-700">
+            <ul className="space-y-1 pt-2 pb-4 text-sm">
+                {navLinks.map((link, index) => (
+                    <li
+                        className={`${
+                            router === link.url.split("/")[1]
+                                ? "rounded-md bg-gray-900 text-white"
+                                : "hover:rounded-md hover:bg-gray-900 hover:text-white"
+                        } group transition duration-300`}
+                        key={index}
+                    >
+                        <Link
+                            href={link.url}
+                            className="flex items-center space-x-3 rounded-md p-2"
+                        >
+                            {link.icon}
+                            <span>{link.name}</span>
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+            <ul className="space-y-1 pt-4 pb-2 text-sm">
+                <li className="group transition duration-300 hover:rounded-md hover:bg-gray-900 hover:text-white">
+                    <a
+                        rel="noopener noreferrer"
+                        href="#"
+                        className="flex items-center space-x-3 rounded-md p-2"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5 stroke-gray-400 group-hover:stroke-white"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
+                            <circle cx={12} cy={12} r={3} />
+                        </svg>
+                        <span>Pengaturan</span>
+                    </a>
+                </li>
+                <li className="group transition duration-300 hover:rounded-md hover:bg-gray-900 hover:text-white">
+                    <Link
+                        href={route("logout")}
+                        method="post"
+                        as="button"
+                        className="flex items-center space-x-3 rounded-md p-2"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-5 w-5 stroke-gray-400 group-hover:stroke-white"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M13 12v.01" />
+                            <path d="M3 21h18" />
+                            <path d="M5 21v-16a2 2 0 0 1 2 -2h7.5m2.5 10.5v7.5" />
+                            <path d="M14 7h7m-3 -3l3 3l-3 3" />
+                        </svg>
+
+                        <span>Keluar</span>
+                    </Link>
+                </li>
+            </ul>
+        </div>
+    );
+}
+
 function Sidebar() {
     return (
         <div className="relative hidden w-1/6 lg:block">
             <div className="fixed min-h-screen w-1/6 space-y-2 bg-gray-800 p-3 tracking-normal text-gray-300">
                 <MyPopover />
-                <div className="divide-y divide-gray-700">
-                    <ul className="space-y-1 pt-2 pb-4 text-sm">
-                        {navLinks.map((link, index) => (
-                            <li
-                                className={`${
-                                    window.location.pathname === link.url
-                                        ? "rounded-md bg-gray-900 text-white"
-                                        : "hover:rounded-md hover:bg-gray-900 hover:text-white"
-                                } group transition duration-300`}
-                                key={index}
-                            >
-                                <Link
-                                    href={link.url}
-                                    className="flex items-center space-x-3 rounded-md p-2"
-                                >
-                                    {link.icon}
-                                    <span>{link.name}</span>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                    <ul className="space-y-1 pt-4 pb-2 text-sm">
-                        <li className="group transition duration-300 hover:rounded-md hover:bg-gray-900 hover:text-white">
-                            <a
-                                rel="noopener noreferrer"
-                                href="#"
-                                className="flex items-center space-x-3 rounded-md p-2"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5 stroke-gray-400 group-hover:stroke-white"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth="1.5"
-                                    fill="none"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                >
-                                    <path
-                                        stroke="none"
-                                        d="M0 0h24v24H0z"
-                                        fill="none"
-                                    />
-                                    <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
-                                    <circle cx={12} cy={12} r={3} />
-                                </svg>
-                                <span>Settings</span>
-                            </a>
-                        </li>
-                        <li className="group transition duration-300 hover:rounded-md hover:bg-gray-900 hover:text-white">
-                            <a
-                                rel="noopener noreferrer"
-                                href="#"
-                                className="flex items-center space-x-3 rounded-md p-2"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5 stroke-gray-400 group-hover:stroke-white"
-                                    viewBox="0 0 24 24"
-                                    strokeWidth="1.5"
-                                    fill="none"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                >
-                                    <path
-                                        stroke="none"
-                                        d="M0 0h24v24H0z"
-                                        fill="none"
-                                    />
-                                    <path d="M13 12v.01" />
-                                    <path d="M3 21h18" />
-                                    <path d="M5 21v-16a2 2 0 0 1 2 -2h7.5m2.5 10.5v7.5" />
-                                    <path d="M14 7h7m-3 -3l3 3l-3 3" />
-                                </svg>
-
-                                <span>Logout</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                {Menus()}
             </div>
         </div>
     );
@@ -261,85 +282,7 @@ function SidebarResponsive() {
             >
                 <div className="min-h-screen w-56 space-y-2 border-r border-slate-700 bg-gray-800 p-3 tracking-normal text-gray-300 transition-all duration-300 lg:w-full">
                     <MyPopover />
-                    <div className="divide-y divide-gray-700">
-                        <ul className="space-y-1 pt-2 pb-4 text-sm">
-                            {navLinks.map((link, index) => (
-                                <li
-                                    className={`${
-                                        window.location.pathname === link.url
-                                            ? "rounded-md bg-gray-900 text-white"
-                                            : "hover:rounded-md hover:bg-gray-900 hover:text-white"
-                                    } group transition duration-300`}
-                                    key={index}
-                                >
-                                    <Link
-                                        href={link.url}
-                                        className="flex items-center space-x-3 rounded-md p-2"
-                                    >
-                                        {link.icon}
-                                        <span>{link.name}</span>
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                        <ul className="space-y-1 pt-4 pb-2 text-sm">
-                            <li className="group transition duration-300 hover:rounded-md hover:bg-gray-900 hover:text-white">
-                                <a
-                                    rel="noopener noreferrer"
-                                    href="#"
-                                    className="flex items-center space-x-3 rounded-md p-2"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-5 w-5 stroke-gray-400 group-hover:stroke-white"
-                                        viewBox="0 0 24 24"
-                                        strokeWidth="1.5"
-                                        fill="none"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    >
-                                        <path
-                                            stroke="none"
-                                            d="M0 0h24v24H0z"
-                                            fill="none"
-                                        />
-                                        <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
-                                        <circle cx={12} cy={12} r={3} />
-                                    </svg>
-                                    <span>Settings</span>
-                                </a>
-                            </li>
-                            <li className="group transition duration-300 hover:rounded-md hover:bg-gray-900 hover:text-white">
-                                <a
-                                    rel="noopener noreferrer"
-                                    href="#"
-                                    className="flex items-center space-x-3 rounded-md p-2"
-                                >
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-5 w-5 stroke-gray-400 group-hover:stroke-white"
-                                        viewBox="0 0 24 24"
-                                        strokeWidth="1.5"
-                                        fill="none"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    >
-                                        <path
-                                            stroke="none"
-                                            d="M0 0h24v24H0z"
-                                            fill="none"
-                                        />
-                                        <path d="M13 12v.01" />
-                                        <path d="M3 21h18" />
-                                        <path d="M5 21v-16a2 2 0 0 1 2 -2h7.5m2.5 10.5v7.5" />
-                                        <path d="M14 7h7m-3 -3l3 3l-3 3" />
-                                    </svg>
-
-                                    <span>Logout</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    {Menus()}
                 </div>
                 <div className="flex items-end p-2 text-white lg:hidden">
                     <div

@@ -44,7 +44,7 @@ export default function Register() {
                             <h1 className="text-lg font-semibold tracking-tight text-gray-800 lg:text-xl">
                                 Register
                             </h1>
-                            <p className="text-muted mt-0.5 text-gray-500">
+                            <p className="mt-0.5 text-sm text-gray-500">
                                 Already have an account?{" "}
                                 <Link
                                     className="font-medium text-green-700"

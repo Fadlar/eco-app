@@ -19,9 +19,7 @@ return new class extends Migration
             $table->string('weight', 50)->comment('Only Gram');
             $table->string('points_earned');
             $table->dateTime('schedule');
-            $table->string('location');
-            $table->string('lat')->nullable();
-            $table->string('lng')->nullable();
+            $table->text('address');
             $table->enum('status', ['waiting', 'rejected', 'pickup', 'done'])->default('waiting');
             $table->timestamps();
         });

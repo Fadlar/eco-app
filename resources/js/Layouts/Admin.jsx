@@ -1,12 +1,15 @@
 import Sidebar from "@/Components/Sidebar";
-import React, { useState } from "react";
-import { usePage } from "@inertiajs/inertia-react";
+import React from "react";
+import { Head, usePage } from "@inertiajs/inertia-react";
 import { Toaster } from "react-hot-toast";
 
 export default function Admin(props) {
     const { auth } = usePage().props;
     return (
         <>
+            <Head>
+                <title>{props.title}</title>
+            </Head>
             <Toaster
                 position="top-right"
                 reverseOrder={false}

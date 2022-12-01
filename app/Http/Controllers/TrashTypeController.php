@@ -39,10 +39,10 @@ class TrashTypeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required']
+            'name' => ['required'],
         ]);
         TrashType::create($request->all());
-        return redirect("/trash-type");
+        return redirect(route('trash-type.index'));
     }
 
     /**
@@ -64,7 +64,9 @@ class TrashTypeController extends Controller
      */
     public function edit(TrashType $trashType)
     {
-        //
+        return inertia('Admin/TrashType/Edit', [
+            'trashType' => $trashType
+        ]);
     }
 
     /**
@@ -76,7 +78,11 @@ class TrashTypeController extends Controller
      */
     public function update(Request $request, TrashType $trashType)
     {
-        //
+        $request->validate([
+            'name' => ['required'],
+        ]);
+        $trashType->update($request->all());
+        return redirect(route('trash-type.index'));
     }
 
     /**
@@ -87,6 +93,7 @@ class TrashTypeController extends Controller
      */
     public function destroy(TrashType $trashType)
     {
-        //
+        $trashType->delete();
+        return back();
     }
 }

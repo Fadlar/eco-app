@@ -47,7 +47,7 @@ export default function Login({ status, canResetPassword }) {
                             <h1 className="text-lg font-semibold tracking-tight text-gray-800 lg:text-xl">
                                 Login to your Account
                             </h1>
-                            <p className="text-muted mt-0.5 text-gray-500">
+                            <p className="mt-0.5 text-sm text-gray-500">
                                 Don't have an account ?{" "}
                                 <Link
                                     className="font-medium text-green-700"
@@ -235,7 +235,7 @@ export default function Login({ status, canResetPassword }) {
                                     </div>
                                     {canResetPassword && (
                                         <Link
-                                            className="font-medium text-green-700"
+                                            className="text-sm font-medium text-green-700"
                                             href={route("password.request")}
                                         >
                                             Forgot password

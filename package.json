@@ -25,6 +25,8 @@
     },
     "dependencies": {
         "react-hot-toast": "^2.4.0",
+        "react-map-gl-geocoder": "^1.8.1",
+        "react-multi-select-component": "^4.3.4",
         "tailwind-scrollbar": "^2.0.1"
     }
 }

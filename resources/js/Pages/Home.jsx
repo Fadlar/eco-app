@@ -1,7 +1,7 @@
 import { Link } from "@inertiajs/inertia-react";
 import React from "react";
 
-export default function Welcome() {
+export default function Home() {
     return (
         <div className="min-h-screen bg-gray-50">
             <header className="bg-white px-16 text-gray-900 shadow">
