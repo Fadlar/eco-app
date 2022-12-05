@@ -1,3 +1,4 @@
+import ApplicationLogo from "@/Components/ApplicationLogo";
 import { Link } from "@inertiajs/inertia-react";
 import React from "react";
 
@@ -7,25 +8,13 @@ export default function Home() {
             <header className="bg-white px-16 text-gray-900 shadow">
                 <div className="container mx-auto flex flex-col flex-wrap items-center p-5 md:flex-row">
                     <a className="title-font mb-4 flex items-center font-medium text-gray-900 md:mb-0">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-10 w-10 rounded-full bg-green-700 p-2 text-white"
-                            width={28}
-                            height={28}
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            stroke="#fff"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <circle cx={7} cy={17} r={2} />
-                            <circle cx={17} cy={17} r={2} />
-                            <path d="M5 17h-2v-4m-1 -8h11v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" />
-                            <line x1={3} y1={9} x2={7} y2={9} />
-                        </svg>
-                        <span className="ml-3 text-xl">ECO APP</span>
+                        <ApplicationLogo
+                            className={`h-14 w-14 lg:h-10 lg:w-10`}
+                        />
+
+                        <span className="ml-3 text-2xl font-semibold tracking-tighter text-green-800">
+                            ECO
+                        </span>
                     </a>
                     <nav className="flex flex-wrap items-center justify-center text-base md:ml-auto">
                         <a href="#" className="mr-5 hover:text-gray-700">

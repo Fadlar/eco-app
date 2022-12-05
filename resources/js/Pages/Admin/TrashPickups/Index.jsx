@@ -74,7 +74,10 @@ export default function Index({ pickups }) {
                                                     )}
                                                 </td>
                                                 <td className="px-3 py-2">
-                                                    <p>{t.schedule}</p>
+                                                    <p>
+                                                        {t.schedule_start} -{" "}
+                                                        {t.schedule_end}
+                                                    </p>
                                                 </td>
                                                 <td className="px-3 py-2">
                                                     <p>{t.address}</p>

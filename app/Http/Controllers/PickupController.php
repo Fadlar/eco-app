@@ -36,7 +36,8 @@ class PickupController extends Controller
         $user = auth()->user();
         $request->validate([
             'weight' => ['required', 'numeric'],
-            'schedule' => ['required'],
+            'schedule_start' => ['required'],
+            'schedule_end' => ['required'],
             'address' => ['required'],
             'trash_type' => ['required']
         ]);
@@ -45,7 +46,8 @@ class PickupController extends Controller
         $pickups = $user->pickups()->create([
             'weight' => $request->weight,
             'points_earned' => $point_earned,
-            'schedule' => $request->schedule,
+            'schedule_start' => $request->schedule_start,
+            'schedule_end' => $request->schedule_end,
             'address' => $request->address,
         ]);
 

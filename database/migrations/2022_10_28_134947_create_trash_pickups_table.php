@@ -18,7 +18,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('weight', 50)->comment('Only Gram');
             $table->string('points_earned');
-            $table->dateTime('schedule');
+            $table->dateTime('schedule_start');
+            $table->dateTime('schedule_end');
             $table->text('address');
             $table->enum('status', ['waiting', 'rejected', 'pickup', 'done'])->default('waiting');
             $table->timestamps();

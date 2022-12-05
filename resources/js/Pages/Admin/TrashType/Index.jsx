@@ -12,8 +12,8 @@ export default function Index(props) {
         <>
             <div className="container text-gray-900">
                 <div className="mb-6 flex items-center justify-between">
-                    <Header desc={"A list of all the trash types."}>
-                        Trash Type
+                    <Header desc={"Daftar semua jenis sampah."}>
+                        Jenis Sampah
                     </Header>
                     <ButtonLink href={addUrl}>Add Trash Type</ButtonLink>
                 </div>

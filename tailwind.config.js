@@ -27,5 +27,9 @@ module.exports = {
         },
     },
 
-    plugins: [require("@tailwindcss/forms"), require("tailwind-scrollbar")],
+    plugins: [
+        require("@tailwindcss/forms"),
+        require("tailwind-scrollbar"),
+        require("@headlessui/tailwindcss")({ prefix: "ui" }),
+    ],
 };

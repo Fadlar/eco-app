@@ -1,5 +1,6 @@
 import { Link } from "@inertiajs/inertia-react";
 import React from "react";
+import ApplicationLogo from "./ApplicationLogo";
 
 function NavBar({ auth, className }) {
     let router = window.location.pathname;
@@ -34,11 +35,12 @@ function NavBar({ auth, className }) {
             icon: (
                 <>
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                    <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12" />
+                    <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4" />
                 </>
             ),
-            title: "Donation",
-            href: "/donations",
+            title: "Withdrawals",
+            href: "/withdrawals",
         },
         {
             icon: (
@@ -182,11 +184,12 @@ function ResponsiveNav({ auth, className }) {
             icon: (
                 <>
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                    <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12" />
+                    <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4" />
                 </>
             ),
-            title: "Donasi",
-            href: "/donations",
+            title: "Withdrawals",
+            href: "/withdrawals",
         },
         {
             icon: (
@@ -197,7 +200,7 @@ function ResponsiveNav({ auth, className }) {
                 </>
             ),
             title: "Profil",
-            href: "/profil",
+            href: "/profile",
         },
     ];
     return (
@@ -205,24 +208,29 @@ function ResponsiveNav({ auth, className }) {
             <div
                 className={`${className} flex items-center justify-between bg-white px-5 py-4`}
             >
-                <div className="text-sm font-semibold tracking-tighter">
-                    ECO App
-                </div>
-                <Link href="#">
+                <Link
+                    href="/"
+                    className="text-sm font-semibold tracking-tighter"
+                >
+                    <ApplicationLogo className={"h-9 w-9"} />
+                </Link>
+                <Link href={route("logout")} method="post">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="stroke-slate-500"
-                        width={24}
-                        height={24}
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        fill="none"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                        width={26}
+                        height={26}
+                        fill="currentColor"
+                        className="fill-green-900"
+                        viewBox="0 0 16 16"
                     >
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12" />
-                        <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4" />
+                        <path
+                            fillRule="evenodd"
+                            d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"
+                        />
+                        <path
+                            fillRule="evenodd"
+                            d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"
+                        />
                     </svg>
                 </Link>
             </div>
@@ -261,7 +269,7 @@ function ResponsiveNav({ auth, className }) {
                                         router === m.href.split("/")[1]
                                             ? "font-semibold text-slate-700"
                                             : "font-medium text-slate-500"
-                                    } text-xs tracking-tight transition-colors duration-300 group-hover:font-semibold group-hover:text-slate-700`}
+                                    } text-xs tracking-tight transition-colors duration-300 group-hover:text-slate-700`}
                                 >
                                     {m.title}
                                 </div>

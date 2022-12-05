@@ -1,6 +1,6 @@
 import React from "react";
 import { Head } from "@inertiajs/inertia-react";
-import Logo from "@/Components/Logo";
+import ApplicationLogo from "@/Components/ApplicationLogo";
 
 export default function Guest({ children, title }) {
     return (
@@ -15,9 +15,9 @@ export default function Guest({ children, title }) {
                                     className="mb-3 flex shrink-0 items-center pt-6 focus:outline-none md:-ml-[5.25rem] md:mb-0 md:pt-0 lg:mb-6"
                                     href="/"
                                 >
-                                    <div className="rounded-full bg-green-700 p-5 md:-mb-[6.1rem]">
-                                        <Logo
-                                            className={`h-8 w-8 lg:h-10 lg:w-10`}
+                                    <div className="rounded-full bg-white p-5 md:-mb-[6.1rem]">
+                                        <ApplicationLogo
+                                            className={`h-14 w-14 lg:h-10 lg:w-10`}
                                         />
                                     </div>
                                 </a>

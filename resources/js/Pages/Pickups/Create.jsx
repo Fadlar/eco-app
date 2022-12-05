@@ -1,4 +1,3 @@
-import Button from "@/Components/Button";
 import Error from "@/Components/Error";
 import Input from "@/Components/Input";
 import Label from "@/Components/Label";
@@ -16,7 +15,8 @@ export default function Create({ trashTypes }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         trash_type: [],
         weight: "",
-        schedule: "",
+        schedule_start: "",
+        schedule_end: "",
         address: "",
     });
     const handleChange = (e) => setData(e.target.name, e.target.value);
@@ -89,23 +89,46 @@ export default function Create({ trashTypes }) {
                     </div>
                     <div className="mb-3">
                         <Label
-                            forInput={`schedule`}
-                            value={`Jadwal Penjemputan`}
+                            forInput={`schedule_start`}
+                            value={`Jadwal Penjemputan Dari`}
                             className="mb-1"
                         />
                         <Input
                             type="datetime-local"
-                            name={`schedule`}
-                            id={`schedule`}
-                            value={data.schedule}
+                            name={`schedule_start`}
+                            id={`schedule_start`}
+                            value={data.schedule_start}
                             handleChange={handleChange}
                             className={`w-full`}
                             min={nows}
                             required
                         />
-                        {errors.schedule && (
+                        {errors.schedule_start && (
                             <Error
-                                message={errors.schedule}
+                                message={errors.schedule_start}
+                                className={"mt-1"}
+                            />
+                        )}
+                    </div>
+                    <div className="mb-3">
+                        <Label
+                            forInput={`schedule_end`}
+                            value={`Jadwal Penjemputan Sampai`}
+                            className="mb-1"
+                        />
+                        <Input
+                            type="datetime-local"
+                            name={`schedule_end`}
+                            id={`schedule_end`}
+                            value={data.schedule_end}
+                            handleChange={handleChange}
+                            className={`w-full`}
+                            min={nows}
+                            required
+                        />
+                        {errors.schedule_end && (
+                            <Error
+                                message={errors.schedule_end}
                                 className={"mt-1"}
                             />
                         )}

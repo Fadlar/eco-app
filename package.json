@@ -24,6 +24,7 @@
         "vite": "^3.0.0"
     },
     "dependencies": {
+        "@headlessui/tailwindcss": "^0.1.1",
         "react-hot-toast": "^2.4.0",
         "react-map-gl-geocoder": "^1.8.1",
         "react-multi-select-component": "^4.3.4",

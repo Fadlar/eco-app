@@ -1,5 +1,3 @@
-import Heading from "@/Components/Heading";
-import Pagination from "@/Components/Pagination";
 import App from "@/Layouts/App";
 import { Link } from "@inertiajs/inertia-react";
 import React from "react";

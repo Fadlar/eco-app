@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{HomeController, PickupController, TrashPickupController, TrashTypeController};
+use App\Http\Controllers\{HomeController, PickupController, TrashPickupController, TrashTypeController, UserController};
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class);
@@ -15,6 +15,7 @@ Route::middleware('auth')->group(function () {
     ]);
     // User
     Route::resource('pickups', PickupController::class);
+    Route::resource('profile', UserController::class);
 });
 
 

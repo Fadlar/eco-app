@@ -83,24 +83,6 @@ const navLinks = [
                 strokeLinejoin="round"
             >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-            </svg>
-        ),
-        name: "Donasi",
-        url: "/donation",
-    },
-    {
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 stroke-gray-400 group-hover:stroke-white"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <line x1={4} y1={7} x2={20} y2={7} />
                 <line x1={10} y1={11} x2={10} y2={17} />
                 <line x1={14} y1={11} x2={14} y2={17} />
@@ -110,29 +92,6 @@ const navLinks = [
         ),
         name: "Jenis Sampah",
         url: "/trash-type",
-    },
-    {
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 stroke-gray-400 group-hover:stroke-white"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <line x1={9} y1={6} x2={20} y2={6} />
-                <line x1={9} y1={12} x2={20} y2={12} />
-                <line x1={9} y1={18} x2={20} y2={18} />
-                <line x1={5} y1={6} x2={5} y2="6.01" />
-                <line x1={5} y1={12} x2={5} y2="12.01" />
-                <line x1={5} y1={18} x2={5} y2="18.01" />
-            </svg>
-        ),
-        name: "Jenis Donasi",
-        url: "/donation-type",
     },
     {
         icon: (
