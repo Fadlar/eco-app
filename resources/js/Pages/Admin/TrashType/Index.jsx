@@ -24,7 +24,6 @@ export default function Index(props) {
                                 <table className="w-full whitespace-nowrap p-6 text-left text-sm">
                                     <colgroup>
                                         <col className="w-14" />
-                                        <col className="w-52" />
                                         <col />
                                         <col className="w-5" />
                                     </colgroup>
@@ -34,7 +33,6 @@ export default function Index(props) {
                                                 #
                                             </th>
                                             <th className="p-3">Name</th>
-                                            <th className="p-3">Icon</th>
                                             <th className="p-3">
                                                 <span className="sr-only">
                                                     Edit
@@ -53,20 +51,6 @@ export default function Index(props) {
                                                 </td>
                                                 <td className="px-3 py-2">
                                                     <p>{t.name}</p>
-                                                </td>
-                                                <td className="px-3 py-2">
-                                                    {t.icon ? (
-                                                        <p
-                                                            className="h-10 w-10 text-center"
-                                                            dangerouslySetInnerHTML={{
-                                                                __html: t?.icon,
-                                                            }}
-                                                        />
-                                                    ) : (
-                                                        <p className="text-slate-500">
-                                                            Tida ada icon
-                                                        </p>
-                                                    )}
                                                 </td>
                                                 <td className="p-3 text-right">
                                                     <Link

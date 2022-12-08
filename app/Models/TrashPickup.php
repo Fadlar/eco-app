@@ -11,6 +11,8 @@ class TrashPickup extends Model
 
     protected $guarded = [];
 
+    protected $with = ['trashType', 'user', 'reply'];
+
     public function trashType()
     {
         return $this->belongsToMany(TrashType::class, 'pickup_types');
@@ -19,5 +21,10 @@ class TrashPickup extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function reply()
+    {
+        return $this->hasOne(Reply::class, 'trash_pickup_id');
     }
 }

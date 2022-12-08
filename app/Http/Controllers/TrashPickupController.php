@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TrashPickup;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TrashPickupController extends Controller
@@ -14,6 +15,7 @@ class TrashPickupController extends Controller
      */
     public function index()
     {
+
         $pickups = TrashPickup::with(['trashType', 'user'])->paginate();
         return inertia('Admin/TrashPickups/Index', [
             'pickups' => $pickups
@@ -55,7 +57,7 @@ class TrashPickupController extends Controller
      */
     public function show(TrashPickup $trashPickup)
     {
-        //
+        return inertia('Admin/TrashPickups/Show', compact('trashPickup'));
     }
 
     /**
@@ -78,7 +80,39 @@ class TrashPickupController extends Controller
      */
     public function update(Request $request, TrashPickup $trashPickup)
     {
-        //
+        $user = User::whereId($trashPickup->user->id)->first();
+        $request->validate([
+            'point' => ['required'],
+            'weight' => ['required'],
+            'description' => ['required'],
+            'status' => ['required']
+        ]);
+
+        if ($trashPickup->reply === null) {
+            $trashPickup->reply()->create([
+                'description' => $request->description
+            ]);
+        } else {
+            $trashPickup->reply()->update([
+                'description' => $request->description
+            ]);
+        }
+
+        $trashPickup->update([
+            'points_earned' => $request->point,
+            'weight' => $request->weight,
+            'status' => $request->status,
+        ]);
+
+        if ($trashPickup->status === "done") {
+            $point_all = $user->userDetail->points + $request->point;
+            $user->userDetail()->update([
+                'points' => $point_all
+            ]);
+        }
+
+
+        return back();
     }
 
     /**

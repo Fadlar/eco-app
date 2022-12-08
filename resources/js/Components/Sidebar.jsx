@@ -37,26 +37,6 @@ const navLinks = [
                 strokeLinejoin="round"
             >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <polyline points="5 12 3 12 12 3 21 12 19 12" />
-                <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-                <rect x={10} y={12} width={4} height={4} />
-            </svg>
-        ),
-        name: "Dashboard",
-        url: "/",
-    },
-    {
-        icon: (
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 stroke-gray-400 group-hover:stroke-white"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M12 17l-2 2l2 2m-2 -2h9a2 2 0 0 0 1.75 -2.75l-.55 -1" />
                 <path
                     d="M12 17l-2 2l2 2m-2 -2h9a2 2 0 0 0 1.75 -2.75l-.55 -1"
@@ -105,6 +85,25 @@ const navLinks = [
                 strokeLinejoin="round"
             >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12" />
+                <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4" />
+            </svg>
+        ),
+        name: "Withdrawals",
+        url: "/withdraws",
+    },
+    {
+        icon: (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 stroke-gray-400 group-hover:stroke-white"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <circle cx={12} cy={7} r={4} />
                 <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
             </svg>
@@ -140,28 +139,6 @@ function Menus() {
                 ))}
             </ul>
             <ul className="space-y-1 pt-4 pb-2 text-sm">
-                <li className="group transition duration-300 hover:rounded-md hover:bg-gray-900 hover:text-white">
-                    <a
-                        rel="noopener noreferrer"
-                        href="#"
-                        className="flex items-center space-x-3 rounded-md p-2"
-                    >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5 stroke-gray-400 group-hover:stroke-white"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.5"
-                            fill="none"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
-                            <circle cx={12} cy={12} r={3} />
-                        </svg>
-                        <span>Pengaturan</span>
-                    </a>
-                </li>
                 <li className="group transition duration-300 hover:rounded-md hover:bg-gray-900 hover:text-white">
                     <Link
                         href={route("logout")}

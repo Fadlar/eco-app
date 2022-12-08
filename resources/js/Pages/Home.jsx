@@ -35,17 +35,6 @@ export default function Home() {
                         className="inline-flex items-center rounded-md border-0 bg-green-700 py-1.5 px-4 text-base text-white focus:outline-none hover:bg-green-700/80 md:mt-0"
                     >
                         Login
-                        {/* <svg
-                            fill="none"
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            className="ml-1 h-4 w-4"
-                            viewBox="0 0 24 24"
-                        >
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg> */}
                     </Link>
                 </div>
             </header>

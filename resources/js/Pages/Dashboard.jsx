@@ -1,13 +1,39 @@
 import React from "react";
 import App from "@/Layouts/App";
-import { Head, Link } from "@inertiajs/inertia-react";
-import Heading from "@/Components/Heading";
+import { Link } from "@inertiajs/inertia-react";
 
 export default function Dashboard() {
     return (
         <>
             <div className="mt-4">
-                kelola sampah Anda dan dapatkan hadiah
+                <section className="mb-8 rounded-lg bg-green-700 p-5 text-gray-100">
+                    <div className="relative w-full">
+                        <h1 className="relative z-20 mb-5 text-2xl font-bold">
+                            Kelola Sampah anda <br /> dan Dapatkan Hadiah
+                        </h1>
+                        <div className="relative inline-flex">
+                            <Link
+                                href="/pickups"
+                                className="rounded-lg bg-rose-500 px-6 py-2 text-lg font-semibold text-white"
+                            >
+                                Buat Sekarang
+                            </Link>
+                        </div>
+                        <div className="absolute top-5 right-0 z-10">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width={90}
+                                height={90}
+                                fill="currentColor"
+                                className="animate-pulse fill-teal-700/60"
+                                viewBox="0 0 16 16"
+                            >
+                                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                            </svg>
+                        </div>
+                    </div>
+                </section>
+
                 <header className="mb-10">
                     <div className="text-center text-xl font-semibold tracking-tighter">
                         Bagaimana itu bekerja.
@@ -110,14 +136,6 @@ export default function Dashboard() {
                             </span>
                         </div>
                     </div>
-                </div>
-                <div className="mx-auto mt-14 text-center">
-                    <Link
-                        href={route("pickups.create")}
-                        className="rounded-lg bg-rose-500 py-3 px-4 text-sm font-semibold tracking-tight text-white"
-                    >
-                        Menjadwalkan Penjemputan
-                    </Link>
                 </div>
             </div>
         </>

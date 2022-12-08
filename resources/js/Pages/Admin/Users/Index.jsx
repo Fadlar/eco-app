@@ -4,16 +4,14 @@ import Admin from "@/Layouts/Admin";
 import { Link } from "@inertiajs/inertia-react";
 import React from "react";
 
-export default function Index({ pickups }) {
+export default function Index({ users }) {
     return (
         <>
             <div className="container text-gray-900">
                 <div className="mb-6 flex items-center justify-between">
-                    <Header desc={"Daftar semua pickup sampah."}>
-                        Pickup Sampah
-                    </Header>
+                    <Header desc={"Daftar semua penjual."}>Data Penjual</Header>
                 </div>
-                {pickups.data.length > 0 ? (
+                {users.data.length > 0 ? (
                     <div className="overflow-hidden rounded-md border text-gray-900 shadow-sm">
                         <>
                             <div className="overflow-x-auto scrollbar-thin scrollbar-track-slate-50 scrollbar-thumb-slate-200">
@@ -29,15 +27,15 @@ export default function Index({ pickups }) {
                                             <th className="p-3 text-center">
                                                 #
                                             </th>
-                                            <th className="p-3">Penjual</th>
-                                            <th className="p-3">Berat</th>
+                                            <th className="p-3">Nama</th>
+                                            <th className="p-3">Email</th>
                                             <th className="p-3">
-                                                Jenis Sampah
+                                                Nomor Telepon
                                             </th>
+                                            <th className="p-3">Data Pickup</th>
                                             <th className="p-3">
-                                                Jadwal Diangkut
+                                                Data Withdrawals
                                             </th>
-                                            <th className="p-3">Alamat</th>
                                             <th className="p-3">Status</th>
                                             <th className="p-3">
                                                 <span className="sr-only">
@@ -47,7 +45,7 @@ export default function Index({ pickups }) {
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white">
-                                        {pickups.data.map((t, index) => (
+                                        {users.data.map((t, index) => (
                                             <tr
                                                 key={t.id}
                                                 className="border-b last:border-0"
@@ -56,51 +54,33 @@ export default function Index({ pickups }) {
                                                     <p>{index + 1}</p>
                                                 </td>
                                                 <td className="px-3 py-2">
-                                                    <p>{t.user.name}</p>
+                                                    <p>{t.name}</p>
                                                 </td>
                                                 <td className="px-3 py-2">
-                                                    <p>{t.weight} Kg</p>
+                                                    <p>{t.email}</p>
                                                 </td>
                                                 <td className="space-x-1 px-3 py-2">
-                                                    {t?.trash_type.map(
-                                                        (tt, key) => (
-                                                            <span
-                                                                key={key}
-                                                                className="inline rounded-full border-blue-600 bg-blue-600/20 py-0.5 px-1.5 text-xs font-medium tracking-tight text-slate-600"
-                                                            >
-                                                                {tt?.name}
-                                                            </span>
-                                                        )
-                                                    )}
+                                                    {t.user_detail === null
+                                                        ? "-"
+                                                        : t.user_detail
+                                                              ?.phone_number}
+                                                </td>
+                                                <td className="px-3 py-2">
+                                                    {t.pickups?.length}
                                                 </td>
                                                 <td className="px-3 py-2">
                                                     <p>
-                                                        {t.schedule_start} -{" "}
-                                                        {t.schedule_end}
+                                                        {t.withdrawals?.length}
                                                     </p>
                                                 </td>
                                                 <td className="px-3 py-2">
-                                                    <p>{t.address}</p>
-                                                </td>
-                                                <td className="px-3 py-2">
-                                                    <p className="inline rounded-full bg-blue-600 px-1.5 py-0.5 text-xs font-semibold capitalize tracking-tight text-white">
-                                                        {t.status === "waiting"
-                                                            ? "Menunggu Konfirmasi"
-                                                            : t.status ===
-                                                              "rejected"
-                                                            ? "Pengambilan Ditolak"
-                                                            : t.status ===
-                                                              "pickup"
-                                                            ? "Sampah Diambil"
-                                                            : "Pengambilan Selesai"}
+                                                    <p className="inline rounded-full border-blue-600 bg-blue-600/20 py-0.5 px-1.5 text-xs font-medium capitalize tracking-tight text-slate-600">
+                                                        {t.status}
                                                     </p>
                                                 </td>
                                                 <td className="p-3 text-right">
                                                     <Link
-                                                        href={route(
-                                                            "trash-pickups.show",
-                                                            t.id
-                                                        )}
+                                                        href={`penjual/${t.id}`}
                                                         className="font-semibold text-blue-600"
                                                     >
                                                         Detail
@@ -112,7 +92,7 @@ export default function Index({ pickups }) {
                                 </table>
                             </div>
                         </>
-                        <Pagination data={pickups} />
+                        <Pagination data={users} />
                     </div>
                 ) : (
                     <div className="rounded-lg border-2 border-dashed bg-gray-100">
@@ -126,4 +106,4 @@ export default function Index({ pickups }) {
     );
 }
 
-Index.layout = (page) => <Admin children={page} title={"Trash Pickups"} />;
+Index.layout = (page) => <Admin children={page} title={"Data Penjual"} />;

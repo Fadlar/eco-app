@@ -11,10 +11,10 @@ class HomeController extends Controller
     {
         $isLogin = Auth::check();
         if (!$isLogin) {
-            return inertia('Home');
+            return inertia('Dashboard');
         } else {
             if (auth()->user()->role === "admin") {
-                return inertia('Admin/Dashboard');
+                return redirect()->route('trash-pickups.index');
             } else {
                 return inertia('Dashboard');
             }

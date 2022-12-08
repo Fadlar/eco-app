@@ -34,23 +34,6 @@ export default function FormTrashType({
                         <Error message={errors.name} className={"mt-1"} />
                     )}
                 </div>
-                <div className="mb-4">
-                    <Label
-                        forInput={"icon"}
-                        value={"Icon"}
-                        className={"mb-2"}
-                    />
-                    <Textarea
-                        className={"w-full text-gray-800"}
-                        id={"icon"}
-                        name={"icon"}
-                        value={data.icon}
-                        handleChange={handleChange}
-                    />
-                    {errors.icon && (
-                        <Error message={errors.icon} className={"mt-1"} />
-                    )}
-                </div>
                 <Button processing={processing}>
                     {processing ? "Loading" : submit}
                 </Button>

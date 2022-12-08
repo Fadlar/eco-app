@@ -8,7 +8,6 @@ import FormTrashType from "@/Components/FormTrashType";
 export default function Edit({ trashType }) {
     const { data, setData, put, processing, errors, reset } = useForm({
         name: trashType.name,
-        icon: trashType.icon,
     });
 
     const handleChange = (e) => setData(e.target.name, e.target.value);
@@ -28,9 +27,9 @@ export default function Edit({ trashType }) {
             <div className="container">
                 <Header
                     className={"mb-6 text-gray-800"}
-                    desc={"Here you can add trash type data."}
+                    desc={"Masukan data dengan baik dan benar."}
                 >
-                    Edit Trash Type
+                    Edit Jenis Sampah
                 </Header>
                 <div className="flex rounded-md bg-white px-7 py-5 shadow">
                     <div className="w-full lg:w-1/2">
@@ -60,4 +59,4 @@ export default function Edit({ trashType }) {
     );
 }
 
-Edit.layout = (page) => <Admin children={page} title={"Edit Trash Type"} />;
+Edit.layout = (page) => <Admin children={page} title={"Edit Jenis Sampah"} />;

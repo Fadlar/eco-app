@@ -51,7 +51,7 @@ function NavBar({ auth, className }) {
                 </>
             ),
             title: "Profil",
-            href: "/profil",
+            href: "/profile",
         },
     ];
     return (
@@ -206,78 +206,62 @@ function ResponsiveNav({ auth, className }) {
     return (
         <>
             <div
-                className={`${className} flex items-center justify-between bg-white px-5 py-4`}
+                className={`flex items-center justify-between bg-white px-5 py-4`}
             >
                 <Link
                     href="/"
-                    className="text-sm font-semibold tracking-tighter"
+                    className="flex items-center gap-x-2 text-sm font-semibold tracking-tighter"
                 >
                     <ApplicationLogo className={"h-9 w-9"} />
-                </Link>
-                <Link href={route("logout")} method="post">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={26}
-                        height={26}
-                        fill="currentColor"
-                        className="fill-green-900"
-                        viewBox="0 0 16 16"
-                    >
-                        <path
-                            fillRule="evenodd"
-                            d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"
-                        />
-                        <path
-                            fillRule="evenodd"
-                            d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"
-                        />
-                    </svg>
+                    <span className="text-2xl font-semibold uppercase text-teal-800">
+                        Eco
+                    </span>
                 </Link>
             </div>
-            <aside
-                className={`${className} fixed bottom-0 flex w-full justify-center bg-white`}
-            >
-                <div className="relative w-full px-6 py-3">
-                    <div className="flex justify-between gap-x-3">
-                        {menus.map((m, index) => (
-                            <Link
-                                href={m.href}
-                                className="group flex flex-col items-center"
-                                key={index}
-                            >
-                                <span className="block">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
+            <div className="flex justify-center">
+                <aside className={`${className} fixed bottom-0 bg-white`}>
+                    <div className="relative w-full px-6 py-3">
+                        <div className="flex justify-between gap-x-3">
+                            {menus.map((m, index) => (
+                                <Link
+                                    href={m.href}
+                                    className="group flex flex-col items-center"
+                                    key={index}
+                                >
+                                    <span className="block">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className={`${
+                                                router === m.href.split("/")[1]
+                                                    ? "stroke-slate-700"
+                                                    : "stroke-slate-500"
+                                            } transition-colors duration-300 group-hover:stroke-slate-800`}
+                                            width={24}
+                                            height={24}
+                                            viewBox="0 0 24 24"
+                                            strokeWidth="1.5"
+                                            fill="none"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        >
+                                            {m.icon}
+                                        </svg>
+                                    </span>
+                                    <div
                                         className={`${
                                             router === m.href.split("/")[1]
-                                                ? "stroke-slate-700"
-                                                : "stroke-slate-500"
-                                        } transition-colors duration-300 group-hover:stroke-slate-800`}
-                                        width={24}
-                                        height={24}
-                                        viewBox="0 0 24 24"
-                                        strokeWidth="1.5"
-                                        fill="none"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
+                                                ? "font-semibold text-slate-700"
+                                                : "font-medium text-slate-500"
+                                        } text-xs tracking-tight transition-colors duration-300 group-hover:text-slate-700`}
                                     >
-                                        {m.icon}
-                                    </svg>
-                                </span>
-                                <div
-                                    className={`${
-                                        router === m.href.split("/")[1]
-                                            ? "font-semibold text-slate-700"
-                                            : "font-medium text-slate-500"
-                                    } text-xs tracking-tight transition-colors duration-300 group-hover:text-slate-700`}
-                                >
-                                    {m.title}
-                                </div>
-                            </Link>
-                        ))}
+                                        {m.title}
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </aside>
+                </aside>
+            </div>
         </>
     );
 }

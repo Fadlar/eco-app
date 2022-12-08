@@ -10,6 +10,9 @@ class PickupController extends Controller
     public function index()
     {
         $user = auth()->user();
+        if ($user->role === "admin") {
+            return redirect()->route('pickups.index');
+        }
         $trashPickups = $user->pickups()->with('trashType')->paginate();
         return inertia('Pickups/Index', [
             'trashPickups' => $trashPickups

@@ -8,7 +8,6 @@ import FormTrashType from "@/Components/FormTrashType";
 export default function Create() {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: "",
-        icon: "",
     });
 
     const handleChange = (e) => setData(e.target.name, e.target.value);
@@ -28,9 +27,9 @@ export default function Create() {
             <div className="container">
                 <Header
                     className={"mb-6 text-gray-800"}
-                    desc={"Here you can add trash type data."}
+                    desc={"Masukan data dengan baik dan benar."}
                 >
-                    Add Trash Type
+                    Tambah Jenis Sampah
                 </Header>
                 <div className="flex rounded-md bg-white px-7 py-5 shadow">
                     <div className="w-full lg:w-1/2">
